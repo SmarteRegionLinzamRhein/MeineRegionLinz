@@ -1,0 +1,15 @@
+name: Call N8N Importer after changes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send GET Request to Webhook
+        run: |
+          curl -X GET https://n8n.common.smart-village.app/webhook/linz-abfall-daten
